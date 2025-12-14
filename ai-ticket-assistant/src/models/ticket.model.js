@@ -25,7 +25,7 @@ const ticketSchema = new Schema(
         ref: "User",
       },
     ],
-    aiNote: String,
+    supportNotes: String,
     priority: String,
     neededSkills: [String],
     deadline: Date,

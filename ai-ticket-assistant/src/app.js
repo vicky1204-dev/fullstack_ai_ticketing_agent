@@ -14,5 +14,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
 // importing routes
+import { userRouter } from "./routes/user.routes.js";
 
 // defining routes
+app.use("/api/users", userRouter)
