@@ -6,8 +6,8 @@ export const userRouter = express.Router()
 
 userRouter.route("/signup").post(userSignup)
 userRouter.route("/login").post(login)
-userRouter.route("/logout").post(logout)
+userRouter.route("/logout").get(logout)
 
 //secures routes
-userRouter.route("/getusers").post(verifyToken, getUsers)
+userRouter.route("/getusers").get(verifyToken, getUsers)
 userRouter.route("/update-users").post(verifyToken, updateUser)
