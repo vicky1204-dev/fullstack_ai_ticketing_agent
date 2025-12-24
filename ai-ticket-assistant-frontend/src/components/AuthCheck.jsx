@@ -10,14 +10,22 @@ const AuthCheck = ({ children, isProtected }) => {
 
     if (isProtected) {
       if (!token) {
-        navigate("/login");
+        navigate("/login", {replace: true});
+        /* Without replace:
+	•	user can press Back
+	•	goes back to prev page such as protected page(bad UX)
+
+With replace:
+	•	prev page removed from history
+	•	cleaner auth flow */
+
         setLoading(false) //this statement is essential in edge cases, if we dont use it here right now its fine as react unmounts the component anyways but not safe for edge cases
       } else {
         setLoading(false)
       }
     } else {
       if (token) {
-        navigate("/")
+        navigate("/", {replace: true})
       }else{
         setLoading(false)
       }
