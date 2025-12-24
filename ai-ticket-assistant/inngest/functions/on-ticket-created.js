@@ -5,7 +5,7 @@ import { analyzeTicket } from "../../src/utils/ai-agent.util.js";
 import { User } from "../../src/models/user.model.js";
 import { sendMail } from "../../src/utils/mailer.util.js";
 
-const onCreatedTicket = inngest.createFunction(
+export const onCreatedTicket = inngest.createFunction(
   { id: "on-ticket-created", retries: 2 },
   { event: "ticket/created" },
   async ({ event, step }) => {
